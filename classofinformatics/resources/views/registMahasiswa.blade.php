@@ -10,26 +10,26 @@
 </head>
 
 <body>
-    <form action="/admin/regrisMahasiswa" method="post">
+    <form action="/admin/registMahasiswa" method="post">
         @csrf
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Password" value ="{{ old('name') }}">
             <label for="floatingPassword">Nama lengkap</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" value ="{{ old('email') }}">
             <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="text" name="nim" class="form-control" id="nim" placeholder="Password" value ="{{ old('nim') }}">
             <label for="floatingPassword">NIM</label>
         </div>
-        <select class="form-select mb-3" aria-label="Default select example">
+        <select class="form-select mb-3" aria-label="Default select example" id="role" name="role">
             <option selected>Mahasiswa</option>
             <option value="1">Guru</option>
         </select>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
         <button type="submit" class="btn btn-primary">Tambah</button>

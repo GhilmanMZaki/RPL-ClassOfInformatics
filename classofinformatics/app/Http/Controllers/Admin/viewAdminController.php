@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class viewAdminController extends Controller
 {
-    public function regrisMahasiswa(){
-        return view('/regrisMahasiswa', [
+    public function registMahasiswa(){
+        return view('/registMahasiswa', [
             "title" => "login"
         ]);
 

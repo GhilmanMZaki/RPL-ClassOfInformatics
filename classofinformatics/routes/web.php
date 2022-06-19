@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\registController;
 use App\Http\Controllers\Mahasiswa\viewController;
 use App\Http\Controllers\Admin\viewAdminController;
 use App\Http\Controllers\userController;
@@ -21,6 +22,7 @@ Route::get('/login', [viewController::class, 'login']);
 Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'login']);
 Route::get('/home', [viewController::class, 'home'])->middleware('auth');
 
-
-Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'regrisMahasiswa']);
+//ADMIN
+Route::get('/admin/registMahasiswa', [viewAdminController::class, 'registMahasiswa']);
+Route::post('/admin/registMahasiswa', [registController::class, 'registMahasiswa']);
 Route::post('/login', [userController::class, 'login']);
