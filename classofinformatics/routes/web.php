@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mahasiswa\viewController;
+use App\Http\Controllers\Admin\viewAdminController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 //MAHASISWA
 Route::get('/login', [viewController::class, 'login']);
+Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'login']);
 Route::get('/home', [viewController::class, 'home'])->middleware('auth');
 
 
+Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'regrisMahasiswa']);
 Route::post('/login', [userController::class, 'login']);
