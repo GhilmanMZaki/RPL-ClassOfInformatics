@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// TEST
+Route::get('/testlogin', function () {
+    return view('testlogin');
+});
+
 //MAHASISWA
 Route::get('/login', [viewController::class, 'login']);
 Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'login']);
