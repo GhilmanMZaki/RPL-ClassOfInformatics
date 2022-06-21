@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth', 'role:ADMIN,TEACHER,STUDENT']], function(
 Route::group(['middleware' => ['auth', 'role:ADMIN']], function(){
     Route::name('admin.')->group(function() {
         Route::get('/statistik/accounts/{role}', function () {
-            return view('admin.statistik.accounts')->with('grades', config('constant.grades'));
+            return view('admin.statistik.accounts')->with('semesters', config('constant.semesters'));
         })->name('statistik.accounts');
 
         Route::get('/subjects', [SubjectController::class, 'index'])
@@ -134,7 +134,7 @@ Route::group(['middleware' => ['auth', 'role:TEACHER']], function(){
             });
         });
 
-        
+
     });
 });
 

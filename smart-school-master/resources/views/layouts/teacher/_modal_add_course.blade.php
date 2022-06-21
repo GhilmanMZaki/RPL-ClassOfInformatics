@@ -16,7 +16,7 @@
             <div class="form-group">
                 <label>Kelas</label>
                 <select name="semester" class="form-control show-tick text-dark" id="">
-                    @foreach ($grades as $key => $semester)
+                    @foreach ($semesters as $key => $semester)
                         <option value="{{$key}}">{{$semester}}</option>
                     @endforeach
                 </select>

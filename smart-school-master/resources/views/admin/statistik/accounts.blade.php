@@ -209,7 +209,7 @@
         $(`input[name=editStatus][value=${dataAccount.status}]`).prop('checked', true)
         if (role === 'STUDENT') {
             $('input[name=editNis]').val(dataAccount.nis)
-            $(`select[name=editGrade] option[value=${dataAccount.semester}]`).attr('selected','selected');
+            $(`select[name=editSemester] option[value=${dataAccount.semester}]`).attr('selected','selected');
         }
     }
 
@@ -228,7 +228,7 @@
 
         if (role === 'STUDENT') {
             let nis = $('input[name=editNis]').val()
-            let semester = $('select[name=editGrade]').val()
+            let semester = $('select[name=editSemester]').val()
             data['nis'] = nis
             data['semester'] = semester
         }

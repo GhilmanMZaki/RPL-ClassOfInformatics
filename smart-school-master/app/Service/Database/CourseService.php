@@ -15,14 +15,14 @@ class CourseService{
         $orderBy = $filter['order_by'] ?? 'DESC';
         $per_page = $filter['per_page'] ?? 99;
         $semester = $filter['semester'] ?? null;
-        $byGrade = $filter['by_grade'] ?? null;
+        $bySemester = $filter['by_semester'] ?? null;
         $subjectId = $filter['subject_id'] ?? null;
         $createdBy = $filter['created_by'] ?? null;
 
         School::findOrFail($schoolId);
 
         $query = Course::orderBy('created_at', $orderBy);
-        if ($byGrade === 1) {
+        if ($bySemester === 1) {
             $query = Course::orderBy('semester', 'asc');
         }
 

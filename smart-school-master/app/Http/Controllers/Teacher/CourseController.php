@@ -29,15 +29,15 @@ class CourseController extends Controller
         $subjects = [];
         foreach ($subjectIds as $key => $subjectId) {
             $dataSubject = $subjectDB->detail($schoolId, $subjectId);
-            
+
             $subjects[$key] = $dataSubject;
         }
-        
+
         $subject = collect($subjects)
         ->firstWhere('id', $request->subject_id) ?? null;
-        
+
         return view('teacher.subject', compact('subject', 'subjects'))
-        ->with('grades', config('constant.grades'));
+        ->with('semesters', config('constant.semesters'));
     }
 
     public function detail(Request $request) {
@@ -51,10 +51,10 @@ class CourseController extends Controller
         $courses = $coruseDB->index($schoolId,
             [
                 'subject_id' => $request->subject_id,
-                'by_grade' => 1,
+                'by_semester' => 1,
             ]
         )['data'];
-        
+
         return view('teacher.course', compact('courses', 'subject', 'course'));
     }
 
@@ -62,14 +62,14 @@ class CourseController extends Controller
         $subjectTeacherDB = new SubjectTeacherService;
         $coruseDB = new CourseService;
         $subjectDB = new SubjectService;
-        
+
         $schoolId = Auth::user()->school_id;
 
         if ($request->subject_id !== null) {
             $courses = $coruseDB->index($schoolId,
                 [
                     'subject_id' => $request->subject_id,
-                    'by_grade' => 1,
+                    'by_semester' => 1,
                 ]
             );
             $courses['total'] = count($courses['data']);
@@ -77,25 +77,25 @@ class CourseController extends Controller
         } else {
             $teacherSubject = $subjectTeacherDB->index($schoolId,
             ['teacher_id' => $request->teacher_id])->toArray();
-    
+
             $subjectIds = collect($teacherSubject['data'])->pluck('subject_id');
-            
+
             $subjects = [];
             foreach ($subjectIds as $key => $subjectId) {
                 $dataSubject = $subjectDB->detail($schoolId, $subjectId);
                 $dataCourse = $coruseDB->index($schoolId, [
                     'subject_id' => $subjectId,
-                    'by_grade' => 1,
+                    'by_semester' => 1,
                 ])['data'];
-                
+
                 $subjects[$key] = $dataSubject;
                 $subjects[$key]['courses'] = $dataCourse;
                 $subjects[$key]['count_course'] = count($dataCourse);
             }
-    
+
             return response()->json($subjects);
         }
-        
+
 
     }
 

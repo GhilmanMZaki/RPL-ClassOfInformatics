@@ -59,7 +59,7 @@ class ProgressController extends Controller
             $totalActivity = count($activitiesDB);
             for ($i=0; $i < $totalActivity; $i++) {
                 $activityResults = ActivityResult::where('activity_id', '=', $activitiesDB[$i]['id'])->get();
-                for ($a=0; $a < count($activityResults); $a++) { 
+                for ($a=0; $a < count($activityResults); $a++) {
                     $student = $studentDB->detail($schoolId, $activityResults[$a]['student_id']);
                     $activityName = Activity::where('id', '=', $activityResults[$a]['activity_id'])->value('name');
                     $activityResults[$a]['student_name'] = $student['name'];
@@ -147,7 +147,7 @@ class ProgressController extends Controller
             ->firstWhere('id', $request->subject_id) ?? null;
 
         return view('teacher.progress.subject', compact('subject', 'subjects'))
-            ->with('grades', config('constant.grades'));
+            ->with('semesters', config('constant.semesters'));
     }
 
     public function detail(Request $request)
@@ -163,7 +163,7 @@ class ProgressController extends Controller
             $schoolId,
             [
                 'subject_id' => $request->subject_id,
-                'by_grade' => 1,
+                'by_semester' => 1,
             ]
         )['data'];
 
@@ -183,7 +183,7 @@ class ProgressController extends Controller
                 $schoolId,
                 [
                     'subject_id' => $request->subject_id,
-                    'by_grade' => 1,
+                    'by_semester' => 1,
                 ]
             );
             $courses['total'] = count($courses['data']);
@@ -201,7 +201,7 @@ class ProgressController extends Controller
                 $dataSubject = $subjectDB->detail($schoolId, $subjectId);
                 $dataCourse = $coruseDB->index($schoolId, [
                     'subject_id' => $subjectId,
-                    'by_grade' => 1,
+                    'by_semester' => 1,
                 ])['data'];
 
                 $subjects[$key] = $dataSubject;
@@ -230,7 +230,7 @@ class ProgressController extends Controller
     }
 
     public function sendNotif($activity_id){
-        
+
         $examsDB = ActivityResult::where(['activity_id'=>$activity_id])->get();
 
         foreach ($examsDB as $key => $value) {
@@ -243,6 +243,6 @@ class ProgressController extends Controller
             $notif->save();
         }
         return redirect()->back();
-        
+
     }
 }
