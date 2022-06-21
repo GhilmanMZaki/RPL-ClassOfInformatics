@@ -10,26 +10,28 @@
 
 <img src="https://github.com/Waggish-Mepo/smart-school/blob/dev/public/assets/images/logo-with-name-learnifyid.png"/>
 
-Learnify.id adalah aplikasi penunjang kegiatan belajar mengajar berbasis Web. 
+Learnify.id adalah aplikasi penunjang kegiatan belajar mengajar berbasis Web.
 
-Learnify.id menunjang kegiatan pembelajaran secara online maupun ofline, aplikasi ini bisa digunakan oleh guru untuk menyampaikan materi dan juga aktivitas. Selain itu, guru juga bisa melakukan *monitoring* nilai dan kegiatan siswa. Pelajaran disajikan dalam bentuk course, sehingga guru bisa menyusun pembelajaran secara terstruktur
+Learnify.id menunjang kegiatan pembelajaran secara online maupun ofline, aplikasi ini bisa digunakan oleh guru untuk menyampaikan materi dan juga aktivitas. Selain itu, guru juga bisa melakukan _monitoring_ nilai dan kegiatan siswa. Pelajaran disajikan dalam bentuk course, sehingga guru bisa menyusun pembelajaran secara terstruktur
 
-Tujuan dibuatnya Learnify.id adalah dibutuhkannya aplikasi pembelajaran jarak jauh (ataupun secara tatap muka) yang praktis, cepat diakses, sentral dan diatur langsung oleh sekolah. Melihat ke pengalaman selama pandemi COVID-19, sekolah-sekolah biasanya melakukan kegiatan PJJ lewat berbagai aplikasi: materi di *share* via grup *WhatsApp* dalam beberapa bentuk dokumen, ulangan dilakukan lewat *Google Forms* atau aplikasi serupa, tugas dikumpulkan lewat *Google Classroom* dan sebagainya. Learnify.id bisa dimanfaatkan untuk keperluan-keperluan tersebut sehingga pembelajaran tidak terpisah dibanyak aplikasi.
+Tujuan dibuatnya Learnify.id adalah dibutuhkannya aplikasi pembelajaran jarak jauh (ataupun secara tatap muka) yang praktis, cepat diakses, sentral dan diatur langsung oleh sekolah. Melihat ke pengalaman selama pandemi COVID-19, sekolah-sekolah biasanya melakukan kegiatan PJJ lewat berbagai aplikasi: materi di _share_ via grup _WhatsApp_ dalam beberapa bentuk dokumen, ulangan dilakukan lewat _Google Forms_ atau aplikasi serupa, tugas dikumpulkan lewat _Google Classroom_ dan sebagainya. Learnify.id bisa dimanfaatkan untuk keperluan-keperluan tersebut sehingga pembelajaran tidak terpisah dibanyak aplikasi.
 
 Siswa cukup login dan langsung bisa mengakses pembelajaran yang sudah disusun oleh guru. Siswa bisa membaca teks, menonton video, atau mengerjakan latihan yang terdapat pada course / pelajaran sesuai mata pelajaran. Setiap pelajaran bisa memiliki banyak topik yang isinya berupa materi dan aktivitas.
 
 Guru juga bisa memonitor ketuntasan belajar siswa lewat fitur statistik pelajaran. Guru bisa melihat nilai latihan / ulangan siswa dan ulasan yang sudah dibaca siswa.
 
 ## Tech Stack
-- Laravel 8
-- PHP 7.4^
-- MySql
-- Bootstrap
-- JQuery
-- dan library lainnya
+
+-   Laravel 8
+-   PHP 7.4^
+-   MySql
+-   Bootstrap
+-   JQuery
+-   dan library lainnya
 
 ## Instalasi
-- Clone repository
-- Install package dengan ```composer install```
-- Migrate database ```php artisan migrate```
-- Seed database ```php artisan db:seed```
+
+-   Clone repository
+-   Install package dengan `composer install`
+-   Migrate database `php artisan migrate`
+-   Seed database `php artisan db:seed`

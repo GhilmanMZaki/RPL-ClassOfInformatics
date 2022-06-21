@@ -24,15 +24,16 @@
     <!-- Page Loader -->
     @extends('layouts._loader')
 
-    <div class="auth-main2 particles_js">
+    <div class="auth-main2 particles_js bg-dark">
         <div class="auth_div vivify fadeInTop">
-            <div class="card">
+            <div class="card shadow-xl mmauto">
                 <div class="body justify-content-around">
                     <div class="login-img">
-                        @include('shared.svg.login-svg')
+                        <img src="{{ asset('assets/images/login.jpg') }}" alt="Smart School Logo"
+                            style="width: 27rem">
                     </div>
                     <form class="form-auth-small my-auto" action="{{ route('auth') }}" method="post">
-                        <img src="{{ asset('assets/images/logo-with-name-learnifyid.svg') }}" alt="Smart School Logo"
+                        <img src="{{ asset('assets/images/logocoi-removebg-preview.png') }}" alt="Smart School Logo"
                             class="img-fluid">
                         {{ csrf_field() }}
 
@@ -50,8 +51,8 @@
                         </div>
                         <div class="form-group clearfix">
                             <label class="fancy-checkbox element-left">
-                                <input type="checkbox" name="remember">
-                                <span>Ingat saya</span>
+                                <input type="checkbox" name="remember" onclick="myFunction()">
+                                <span>Show Password</span>
                             </label>
                         </div>
                         <button type="submit" class="btn bg-blue-2 text-white btn-round btn-block">MASUK</button>
@@ -65,6 +66,17 @@
     <script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("signin-password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>
