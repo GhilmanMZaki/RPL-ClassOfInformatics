@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\registController;
 use App\Http\Controllers\Mahasiswa\viewController;
 use App\Http\Controllers\Admin\viewAdminController;
+use App\Http\Controllers\Admin\mapelController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 //MAHASISWA
 Route::get('/login', [viewController::class, 'login']);
-Route::get('/admin/regrisMahasiswa', [viewAdminController::class, 'login']);
+Route::post('/login', [userController::class, 'login']);
 Route::get('/home', [viewController::class, 'home'])->middleware('auth');
 
 //ADMIN
 Route::get('/admin/registMahasiswa', [viewAdminController::class, 'registMahasiswa']);
 Route::post('/admin/registMahasiswa', [registController::class, 'registMahasiswa']);
-Route::post('/login', [userController::class, 'login']);
+Route::get('/admin/registMentor', [viewAdminController::class, 'registMentor']);
+Route::post('/admin/registMentor', [registController::class, 'registMentor']);
+Route::post('/admin/createMapel', [mapelController::class, 'createMapel']);
+Route::get('/admin/createMapel', [viewAdminController::class, 'createMapel']);

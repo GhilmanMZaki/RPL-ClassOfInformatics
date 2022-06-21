@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="/admin/registMahasiswa" method="post">
+    <form action="/admin/registMentor" method="post">
         @csrf
         <div class="form-floating mb-3">
             <input type="text" name="name" class="form-control" id="name" placeholder="Password" value ="{{ old('name') }}">
@@ -21,11 +21,11 @@
             <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" name="nim" class="form-control" id="nim" placeholder="Password" value ="{{ old('nim') }}">
-            <label for="floatingPassword">NIM</label>
+            <input type="text" name="nip" class="form-control" id="nip" placeholder="Password" value ="{{ old('nip') }}">
+            <label for="floatingPassword">NIP</label>
         </div>
         <select class="form-select mb-3" aria-label="Default select example" id="role" name="role">
-            <option selected>Mahasiswa</option>
+            <option selected>Mentor</option>
         </select>
         <div class="form-floating mb-3">
             <input type="password" name="password" class="form-control" id="password" placeholder="Password">

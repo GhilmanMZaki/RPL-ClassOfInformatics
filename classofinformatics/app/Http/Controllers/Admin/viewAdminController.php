@@ -8,13 +8,25 @@ class viewAdminController extends Controller
 {
     public function registMahasiswa(){
         return view('/registMahasiswa', [
-            "title" => "login"
+            "title" => "registMahasiswa"
+        ]);
+
+    }
+    public function registMentor(){
+        return view('/registMentor', [
+            "title" => "registMentor"
         ]);
 
     }
     public function home(){
         return view('/home', [
             "title" => "home"
+        ]);
+
+    }
+    public function createMapel(){
+        return view('/createMapel', [
+            "title" => "mapel"
         ]);
 
     }
