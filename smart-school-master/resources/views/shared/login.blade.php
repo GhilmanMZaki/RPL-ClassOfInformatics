@@ -51,7 +51,8 @@
                         </div>
                         <div class="form-group clearfix">
                             <label class="fancy-checkbox element-left">
-                                <input type="checkbox" name="remember" onclick="myFunction()">
+                                <input type="checkbox" name="remember" class="shadow  bg-white mmauto"
+                                    onclick="myFunction()">
                                 <span>Show Password</span>
                             </label>
                         </div>
