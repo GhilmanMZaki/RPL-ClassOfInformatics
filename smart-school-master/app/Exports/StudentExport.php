@@ -26,7 +26,7 @@ class StudentExport implements FromCollection, WithMapping, WithHeadings
         return [
             $user->name,
             $user->nis,
-            $user->grade,
+            $user->semester,
             $user->username,
             $user->username,
             $user->email,

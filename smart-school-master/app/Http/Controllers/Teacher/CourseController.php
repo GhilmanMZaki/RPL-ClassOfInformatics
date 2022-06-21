@@ -108,7 +108,7 @@ class CourseController extends Controller
         ($schoolId, $request->subject_id,
             [
                 'description' => $request->name,
-                'grade' => $request->grade,
+                'semester' => $request->semester,
                 'created_by' => $userId,
             ]
         ));

@@ -15,9 +15,9 @@
             </div>
             <div class="form-group">
                 <label>Kelas</label>
-                <select name="grade" class="form-control show-tick text-dark" id="">
-                    @foreach ($grades as $key => $grade)
-                        <option value="{{$key}}">{{$grade}}</option>
+                <select name="semester" class="form-control show-tick text-dark" id="">
+                    @foreach ($grades as $key => $semester)
+                        <option value="{{$key}}">{{$semester}}</option>
                     @endforeach
                 </select>
             </div>

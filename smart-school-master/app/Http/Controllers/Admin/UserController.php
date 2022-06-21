@@ -43,7 +43,7 @@ class UserController extends Controller
             $experience = Auth::user()->experience;
 
             if ($experience === null) {
-                $experienceDB->create($schoolId, $userId, ['grade' => Auth::user()->grade ?? null, 'experience_point' => 0, 'level' => 0]);
+                $experienceDB->create($schoolId, $userId, ['semester' => Auth::user()->semester ?? null, 'experience_point' => 0, 'level' => 0]);
                 $experience = Auth::user()->experience;
             }
 

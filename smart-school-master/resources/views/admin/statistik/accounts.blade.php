@@ -134,7 +134,7 @@
                     <span>${account.email === null ? '-' : account.email}</span>
                 </td>
                 ${role === 'STUDENT' ? `<td>${account.nis === null ? '-' : account.nis}</td>` : ''}
-                ${role === 'STUDENT' ? `<td>${account.grade}</td>` : ''}
+                ${role === 'STUDENT' ? `<td>${account.semester}</td>` : ''}
                 <td>${account.username}</td>
                 <td>${account.status === 1 ? 'Active' : 'Non Active'}</td>
                 <td>
@@ -174,9 +174,9 @@
             }
         if (role === 'STUDENT') {
             let nis = $(`input[name=${role}Nis]`).val();
-            let grade = $(`select[name=${role}Grade]`).val();
+            let semester = $(`select[name=${role}semester]`).val();
             data['nis'] = nis
-            data['grade'] = grade
+            data['semester'] = semester
         }
         let btnSubmit = $(`#${role}-submit`)
 
@@ -209,7 +209,7 @@
         $(`input[name=editStatus][value=${dataAccount.status}]`).prop('checked', true)
         if (role === 'STUDENT') {
             $('input[name=editNis]').val(dataAccount.nis)
-            $(`select[name=editGrade] option[value=${dataAccount.grade}]`).attr('selected','selected');
+            $(`select[name=editGrade] option[value=${dataAccount.semester}]`).attr('selected','selected');
         }
     }
 
@@ -228,9 +228,9 @@
 
         if (role === 'STUDENT') {
             let nis = $('input[name=editNis]').val()
-            let grade = $('select[name=editGrade]').val()
+            let semester = $('select[name=editGrade]').val()
             data['nis'] = nis
-            data['grade'] = grade
+            data['semester'] = semester
         }
 
         let button = $('#update-button')

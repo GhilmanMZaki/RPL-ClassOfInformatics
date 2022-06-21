@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('adminlearnify123'),
                 'role' => User::ADMIN,
                 'status' => true,
-                'grade' => 12,
+                'semester' => 12,
                 'school_id' => $schoolId,
             ],
             [
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('teacherlearnify123'),
                 'role' => User::TEACHER,
                 'status' => true,
-                'grade' => 12,
+                'semester' => 12,
                 'school_id' => $schoolId,
             ],
             [
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('studentlearnify123'),
                 'role' => User::STUDENT,
                 'status' => true,
-                'grade' => 12,
+                'semester' => 12,
                 'school_id' => $schoolId,
             ],
         ];
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
                 DB::table('experiences')->insert([
                     'id' => Uuid::uuid4()->toString(),
                     'school_id' => $schoolId,
-                    'grade' => 12,
+                    'semester' => 12,
                     'user_id' => $createdUser->id,
                     'experience_point' => 0,
                     'level' => 0,
@@ -107,7 +107,7 @@ class DatabaseSeeder extends Seeder
         foreach($subjectIds as $subjectId) {
             $course = [
                 'description' => $courseDescription->random(),
-                'grade' => 12,
+                'semester' => 12,
                 'created_by' => $selectedTeacherId,
                 'subject_id' => $subjectId,
             ];
@@ -118,7 +118,7 @@ class DatabaseSeeder extends Seeder
         foreach($subjectIds as $subjectId) {
             $course = [
                 'description' => $courseDescription->random(),
-                'grade' => 11,
+                'semester' => 11,
                 'created_by' => $selectedTeacherId,
                 'subject_id' => $subjectId,
             ];

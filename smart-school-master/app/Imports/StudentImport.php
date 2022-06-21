@@ -36,14 +36,14 @@ class StudentImport implements ToModel, WithHeadingRow
                 'password'  => Hash::make($username),
                 'email' => $row['email'],
                 'nis'    => $row['nis'],
-                'grade'    => $row['kelas'],
+                'semester'    => $row['kelas'],
                 'role' => User::STUDENT,
                 'status' => true,
             ]);
 
             $user->save();
 
-            $experienceService->create(Auth::user()->school_id, $user->id, ['grade' => $row['kelas'], 'experience_point' => 0, 'level' => 0]);
+            $experienceService->create(Auth::user()->school_id, $user->id, ['semester' => $row['kelas'], 'experience_point' => 0, 'level' => 0]);
         }
     }
 }

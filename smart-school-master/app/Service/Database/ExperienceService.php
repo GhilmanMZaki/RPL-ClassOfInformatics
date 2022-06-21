@@ -17,7 +17,7 @@ class ExperienceService
         $with_users = $filter['with_users'] ?? false;
         $by_xp = $filter['order_by_xp'] ?? false;
         $user_id = $filter['student_id'] ?? null;
-        $grade = $filter['grade'] ?? null;
+        $semester = $filter['semester'] ?? null;
 
         School::findOrFail($schoolId);
 
@@ -33,8 +33,8 @@ class ExperienceService
             $query->where('user_id', $user_id);
         }
 
-        if ($grade !== null) {
-            $query->where('grade', $grade);
+        if ($semester !== null) {
+            $query->where('semester', $semester);
         }
 
         if($with_users) {
@@ -101,7 +101,7 @@ class ExperienceService
 
         Validator::make($experience->toArray(), [
             'user_id' => 'required',
-            'grade' => 'required|integer',
+            'semester' => 'required|integer',
             'experience_point' => 'required|integer',
             'level' => 'required|integer',
         ])->validate();

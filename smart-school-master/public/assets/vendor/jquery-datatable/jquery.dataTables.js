@@ -9823,7 +9823,7 @@
 		 *          { "title": "Browser" },
 		 *          { "title": "Platform" },
 		 *          { "title": "Version" },
-		 *          { "title": "Grade" }
+		 *          { "title": "semester" }
 		 *        ]
 		 *      } );
 		 *    } );
@@ -9838,14 +9838,14 @@
 		 *            "browser":  "Internet Explorer 4.0",
 		 *            "platform": "Win 95+",
 		 *            "version":  4,
-		 *            "grade":    "X"
+		 *            "semester":    "X"
 		 *          },
 		 *          {
 		 *            "engine":   "Trident",
 		 *            "browser":  "Internet Explorer 5.0",
 		 *            "platform": "Win 95+",
 		 *            "version":  5,
-		 *            "grade":    "C"
+		 *            "semester":    "C"
 		 *          }
 		 *        ],
 		 *        "columns": [
@@ -9853,7 +9853,7 @@
 		 *          { "title": "Browser",  "data": "browser" },
 		 *          { "title": "Platform", "data": "platform" },
 		 *          { "title": "Version",  "data": "version" },
-		 *          { "title": "Grade",    "data": "grade" }
+		 *          { "title": "semester",    "data": "semester" }
 		 *        ]
 		 *      } );
 		 *    } );
@@ -10580,7 +10580,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "createdRow": function( row, data, dataIndex ) {
-		 *          // Bold the grade for all 'A' grade browsers
+		 *          // Bold the semester for all 'A' semester browsers
 		 *          if ( data[4] == "A" )
 		 *          {
 		 *            $('td:eq(4)', row).html( '<b>A</b>' );
@@ -10804,7 +10804,7 @@
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "rowCallback": function( row, data, displayIndex, displayIndexFull ) {
-		 *          // Bold the grade for all 'A' grade browsers
+		 *          // Bold the semester for all 'A' semester browsers
 		 *          if ( data[4] == "A" ) {
 		 *            $('td:eq(4)', row).html( '<b>A</b>' );
 		 *          }
@@ -12294,7 +12294,7 @@
 		 *    //      "browser": {value},
 		 *    //      "platform": {value},
 		 *    //      "version": {value},
-		 *    //      "grade": {value}
+		 *    //      "semester": {value}
 		 *    //   }
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
@@ -12304,7 +12304,7 @@
 		 *          { "data": "browser" },
 		 *          { "data": "platform" },
 		 *          { "data": "version" },
-		 *          { "data": "grade" }
+		 *          { "data": "semester" }
 		 *        ]
 		 *      } );
 		 *    } );
@@ -12669,7 +12669,7 @@
 		 *          { "name": "browser", "targets": [ 1 ] },
 		 *          { "name": "platform", "targets": [ 2 ] },
 		 *          { "name": "version", "targets": [ 3 ] },
-		 *          { "name": "grade", "targets": [ 4 ] }
+		 *          { "name": "semester", "targets": [ 4 ] }
 		 *        ]
 		 *      } );
 		 *    } );
@@ -12683,7 +12683,7 @@
 		 *          { "name": "browser" },
 		 *          { "name": "platform" },
 		 *          { "name": "version" },
-		 *          { "name": "grade" }
+		 *          { "name": "semester" }
 		 *        ]
 		 *      } );
 		 *    } );

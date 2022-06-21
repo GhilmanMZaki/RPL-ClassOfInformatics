@@ -18,7 +18,7 @@ class CourseFactory extends Factory
             'subject_id' => $this->faker->uuid(),
             'created_by' => $this->faker->uuid(),
             'description' => $this->faker->text(24),
-            'grade' => $this->faker->numberBetween(1, 12),
+            'semester' => $this->faker->numberBetween(1, 12),
         ];
     }
 }

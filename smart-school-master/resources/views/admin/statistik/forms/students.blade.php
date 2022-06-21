@@ -30,9 +30,9 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
                 <label>Kelas</label>
-                <select name="{{ request()->route('role') }}Grade" class="form-control show-tick text-dark" id="">
-                    @foreach ($grades as $key => $grade)
-                        <option value="{{$key}}">{{$grade}}</option>
+                <select name="{{ request()->route('role') }}semester" class="form-control show-tick text-dark" id="">
+                    @foreach ($grades as $key => $semester)
+                        <option value="{{$key}}">{{$semester}}</option>
                     @endforeach
                 </select>
             </div>

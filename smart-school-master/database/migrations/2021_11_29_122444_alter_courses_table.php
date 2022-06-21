@@ -14,7 +14,7 @@ class AlterCoursesTable extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->unsignedTinyInteger('grade');
+            $table->unsignedTinyInteger('semester');
         });
     }
 
@@ -26,7 +26,7 @@ class AlterCoursesTable extends Migration
     public function down()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->dropColumn('grade');
+            $table->dropColumn('semester');
         });
     }
 }

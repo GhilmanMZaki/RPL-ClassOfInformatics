@@ -35,7 +35,7 @@ class UserFactory extends Factory
             'status' => true,
             'email' => $this->faker->email(),
             'nis' => null,
-            'grade' => 12,
+            'semester' => 12,
         ];
     }
 }

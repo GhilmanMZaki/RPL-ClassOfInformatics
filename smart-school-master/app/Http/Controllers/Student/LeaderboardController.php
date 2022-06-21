@@ -19,7 +19,7 @@ class LeaderboardController extends Controller
         $experience->current_xp = $experience->experience_point % Experience::REQUIRED_XP;
 
         $filter = [
-            'grade' => $user->grade,
+            'semester' => $user->semester,
             'with_users' => true,
             'order_by_xp' => true,
         ];

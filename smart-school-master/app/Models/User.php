@@ -26,7 +26,7 @@ class User extends Authenticatable
         'status',
         'email',
         'nis',
-        'grade',
+        'semester',
         'created_at',
         'update_at',
     ];

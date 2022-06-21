@@ -15,7 +15,7 @@ class AddSchoolIdToExperiences extends Migration
     {
         Schema::table('experiences', function (Blueprint $table) {
             $table->uuid('school_id')->index();
-            $table->smallInteger('grade');
+            $table->smallInteger('semester');
         });
     }
 
@@ -28,7 +28,7 @@ class AddSchoolIdToExperiences extends Migration
     {
         Schema::table('experiences', function (Blueprint $table) {
             $table->dropColumn('school_id');
-            $table->dropColumn('grade');
+            $table->dropColumn('semester');
         });
     }
 }

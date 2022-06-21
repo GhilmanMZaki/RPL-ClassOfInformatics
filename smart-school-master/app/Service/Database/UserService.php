@@ -17,7 +17,7 @@ class UserService {
         $per_page = $filter['per_page'] ?? 999;
         $role = $filter['role'] ?? null;
         $name = $filter['name'] ?? null;
-        $grade = $filter['grade'] ?? null;
+        $semester = $filter['semester'] ?? null;
         $with_experience = $filter['with_experience'] ?? null;
 
         School::findOrFail($schoolId);
@@ -34,8 +34,8 @@ class UserService {
             $query->where('name', $name);
         }
 
-        if ($grade !== null) {
-            $query->where('grade', $grade);
+        if ($semester !== null) {
+            $query->where('semester', $semester);
         }
 
         if ($with_experience) {
@@ -101,7 +101,7 @@ class UserService {
             'password' => 'required|string',
             'status' => 'required',
             'nis' => 'nullable|numeric',
-            'grade' => 'nullable|numeric',
+            'semester' => 'nullable|numeric',
             'email' => 'nullable|email',
             'role' => ['required', Rule::in(config('constant.user.roles'))],
         ])->validate();

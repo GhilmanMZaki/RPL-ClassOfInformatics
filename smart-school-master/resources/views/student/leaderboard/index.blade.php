@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="block-header">
-    <h4 class="text-white my-sm-3 my-2 text-capitalize">leaderboard {{$schoolDetail['name']}} kelas {{$user->grade}}</h4>
+    <h4 class="text-white my-sm-3 my-2 text-capitalize">leaderboard {{$schoolDetail['name']}} kelas {{$user->semester}}</h4>
     <div class="row clearfix mt-2">
         <div class="col-md-4 mt-2 mb-3">
             <div class="d-flex flex-column m-auto rounded bg-white shadow">
@@ -50,7 +50,7 @@
                                 </td>
                                 <td>{{$student['experience_point']}}</td>
                                 <td>{{$student['level']}}</td>
-                                <td>{{$student['grade']}}</td>
+                                <td>{{$student['semester']}}</td>
                             </tr>
                         @endforeach
 

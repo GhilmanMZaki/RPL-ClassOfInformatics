@@ -33,7 +33,7 @@ class TeacherImport implements ToModel, WithHeadingRow
                 'password'  => Hash::make($username),
                 'email' => $row['email'],
                 'nis'    => null,
-                'grade'    => null,
+                'semester'    => null,
                 'role' => User::TEACHER,
                 'status' => true,
             ]);

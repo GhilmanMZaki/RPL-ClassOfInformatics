@@ -44,8 +44,8 @@
                     <div class="form-group">
                         <label for="editGrade" class="col-form-label">Kelas</label>
                         <select name="editGrade" class="form-control show-tick text-dark" id="">
-                            @foreach ($grades as $key => $grade)
-                                <option value="{{$key}}">{{$grade}}</option>
+                            @foreach ($grades as $key => $semester)
+                                <option value="{{$key}}">{{$semester}}</option>
                             @endforeach
                         </select>
                     </div>

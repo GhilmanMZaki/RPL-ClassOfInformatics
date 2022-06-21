@@ -58,12 +58,12 @@ class LessonController extends Controller
         $courseDB = new CourseService;
 
         $schoolId = Auth::user()->school_id;
-        $grade = Auth::user()->grade;
+        $semester = Auth::user()->semester;
 
         $courses = $courseDB->index($schoolId,
             [
                 'subject_id' => $request->subject_id,
-                'grade' => $grade,
+                'semester' => $semester,
                 'per_page' => 99,
             ],
         );
@@ -78,7 +78,7 @@ class LessonController extends Controller
         $courseDB = new CourseService;
 
         $experience = Auth::user()->experience;
-        $grade = Auth::user()->grade;
+        $semester = Auth::user()->semester;
 
         $experience->current_xp = $experience->experience_point % Experience::REQUIRED_XP;
 
@@ -90,7 +90,7 @@ class LessonController extends Controller
         $courses = $courseDB->index($schoolId,
             [
                 'subject_id' => $request->subject_id,
-                'grade' => $grade,
+                'semester' => $semester,
                 'per_page' => 99,
             ],
         );

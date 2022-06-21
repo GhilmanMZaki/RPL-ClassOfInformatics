@@ -47,13 +47,13 @@ class ManageAccountController extends Controller
 
         if ($request->role === 'STUDENT') {
             $payload['nis'] = $request->nis;
-            $payload['grade'] = $request->grade;
+            $payload['semester'] = $request->semester;
         }
 
         $create = $userDB->create($schoolId, $payload);
 
         if ($request->role === 'STUDENT') {
-            $experienceDB->create($schoolId, $create->id, ['grade' => $payload['grade'] ?? null, 'experience_point' => 0, 'level' => 0]);
+            $experienceDB->create($schoolId, $create->id, ['semester' => $payload['semester'] ?? null, 'experience_point' => 0, 'level' => 0]);
         }
         return response()->json($create);
     }
@@ -71,7 +71,7 @@ class ManageAccountController extends Controller
 
         if ($request->role === 'STUDENT') {
             $payload['nis'] = $request->nis;
-            $payload['grade'] = $request->grade;
+            $payload['semester'] = $request->semester;
         }
 
         $update = $userDB->update($schoolId, $request->id, $payload);
