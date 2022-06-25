@@ -24,37 +24,40 @@
                     <div class="form-group">
                         <label class="col-form-label">Status</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="editStatus" id="editStatusActive" value="1">
+                            <input class="form-check-input" type="radio" name="editStatus" id="editStatusActive"
+                                value="1">
                             <label class="form-check-label" for="editStatusActive">
                                 Aktif
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="editStatus" id="editStatusNonActive" value="0">
+                            <input class="form-check-input" type="radio" name="editStatus" id="editStatusNonActive"
+                                value="0">
                             <label class="form-check-label" for="editStatusNonActive">
                                 Non-Aktif
                             </label>
                         </div>
                     </div>
-                    @if(request()->route('role') === "STUDENT")
-                    <div class="form-group">
-                        <label for="editNis" class="col-form-label">NIS</label>
-                        <input type="number" class="form-control text-dark" name="editNis" id="editNis">
-                    </div>
-                    <div class="form-group">
-                        <label for="editSemester" class="col-form-label">Kelas</label>
-                        <select name="editSemester" class="form-control show-tick text-dark" id="">
-                            @foreach ($semesters as $key => $semester)
-                                <option value="{{$key}}">{{$semester}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    @if (request()->route('role') === 'STUDENT')
+                        <div class="form-group">
+                            <label for="editNis" class="col-form-label">Nomor Induk</label>
+                            <input type="number" class="form-control text-dark" name="editNis" id="editNis">
+                        </div>
+                        <div class="form-group">
+                            <label for="editSemester" class="col-form-label">Kelas</label>
+                            <select name="editSemester" class="form-control show-tick text-dark" id="">
+                                @foreach ($semesters as $key => $semester)
+                                    <option value="{{ $key }}">{{ $semester }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     @endif
                 </div>
             </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="update-button" onclick="updateAccount()">Simpan</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="update-button"
+                    onclick="updateAccount()">Simpan</button>
+            </div>
         </div>
     </div>
 </div>

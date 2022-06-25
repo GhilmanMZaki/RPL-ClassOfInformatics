@@ -13,7 +13,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
-                <label>NIS</label>
+                <label>Nomor Induk</label>
                 <input type="number" name="{{ request()->route('role') }}Nis" class="form-control text-dark">
             </div>
         </div>
@@ -30,15 +30,17 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
                 <label>Kelas</label>
-                <select name="{{ request()->route('role') }}semester" class="form-control show-tick text-dark" id="">
+                <select name="{{ request()->route('role') }}semester" class="form-control show-tick text-dark"
+                    id="">
                     @foreach ($semesters as $key => $semester)
-                        <option value="{{$key}}">{{$semester}}</option>
+                        <option value="{{ $key }}">{{ $semester }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-between mt-3">
-        <button type="button" id="{{ request()->route('role') }}-submit" class="btn btn-primary" onclick="createAccount()">Tambah</button>
+        <button type="button" id="{{ request()->route('role') }}-submit" class="btn btn-primary"
+            onclick="createAccount()">Tambah</button>
     </div>
 </div>

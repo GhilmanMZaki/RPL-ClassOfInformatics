@@ -4,7 +4,7 @@
     <div id="left-sidebar" class="sidebar">
         <div class="navbar-brand">
             <a href="{{ route('dashboard') }}">
-                <img src="{{ asset('assets/images/logo-with-name-learnifyid.svg') }}" alt="Smart School Logo"
+                <img src="{{ asset('assets/images/logocoi-removebg-preview.png') }}" alt="Smart School Logo"
                     class="img-fluid">
             </a>
             <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i
@@ -20,7 +20,6 @@
                     <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong
                             id="global-username">{{ Auth::user()->name }}</strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account vivify flipInY p-0">
-                        <li><a href="{{ route('change-password') }}"><i class="icon-lock"></i>Ganti Password</a></li>
                         <li><a href="#" class="js-sweetalert" data-type="confirm-logout"><i
                                     class="icon-power"></i>Keluar</a></li>
                     </ul>

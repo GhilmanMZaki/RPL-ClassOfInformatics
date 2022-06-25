@@ -22,34 +22,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $schoolId = School::factory(['name' => 'SMK Indonesia'])->create()->id;
+        $schoolId = School::factory(['name' => 'Class of Informatika'])->create()->id;
 
         $users = [
             [
                 'name' => 'adminuser',
-                'username' => 'adminlearnify123',
-                'password' => Hash::make('adminlearnify123'),
+                'username' => 'admin',
+                'password' => Hash::make('admin'),
                 'role' => User::ADMIN,
                 'status' => true,
-                'semester' => 12,
+                'semester' => 8,
                 'school_id' => $schoolId,
             ],
             [
                 'name' => 'teacheruser',
-                'username' => 'teacherlearnify123',
-                'password' => Hash::make('teacherlearnify123'),
+                'username' => 'teacher',
+                'password' => Hash::make('teacher'),
                 'role' => User::TEACHER,
                 'status' => true,
-                'semester' => 12,
+                'semester' => 8,
                 'school_id' => $schoolId,
             ],
             [
                 'name' => 'studentuser',
-                'username' => 'studentlearnify123',
-                'password' => Hash::make('studentlearnify123'),
+                'username' => 'student',
+                'password' => Hash::make('student'),
                 'role' => User::STUDENT,
                 'status' => true,
-                'semester' => 12,
+                'semester' => 8,
                 'school_id' => $schoolId,
             ],
         ];
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
                 DB::table('experiences')->insert([
                     'id' => Uuid::uuid4()->toString(),
                     'school_id' => $schoolId,
-                    'semester' => 12,
+                    'semester' => 8,
                     'user_id' => $createdUser->id,
                     'experience_point' => 0,
                     'level' => 0,
@@ -76,15 +76,15 @@ class DatabaseSeeder extends Seeder
 
         $subjects = [
             [
-                'name' => 'Bahasa Indonesia',
+                'name' => 'Pemograman Berbasis Oriented',
                 'school_id' => $schoolId,
             ],
             [
-                'name' => 'Matematika',
+                'name' => 'Matematika Disktrit',
                 'school_id' => $schoolId,
             ],
             [
-                'name' => 'Bahasa Sunda',
+                'name' => 'RPL DI',
                 'school_id' => $schoolId,
             ],
         ];
@@ -99,15 +99,14 @@ class DatabaseSeeder extends Seeder
 
         $courseDescription = collect([
             'IT',
-            'Bisnis',
             'Umum',
         ]);
 
         $courseIds = [];
-        foreach($subjectIds as $subjectId) {
+        foreach ($subjectIds as $subjectId) {
             $course = [
                 'description' => $courseDescription->random(),
-                'semester' => 12,
+                'semester' => 8,
                 'created_by' => $selectedTeacherId,
                 'subject_id' => $subjectId,
             ];
@@ -115,10 +114,10 @@ class DatabaseSeeder extends Seeder
             $courseIds[] = Course::factory($course)->create()->id;
         }
 
-        foreach($subjectIds as $subjectId) {
+        foreach ($subjectIds as $subjectId) {
             $course = [
                 'description' => $courseDescription->random(),
-                'semester' => 11,
+                'semester' => 7,
                 'created_by' => $selectedTeacherId,
                 'subject_id' => $subjectId,
             ];
@@ -126,16 +125,12 @@ class DatabaseSeeder extends Seeder
             $courseIds[] = Course::factory($course)->create()->id;
         }
 
-        foreach($subjectIds as $subjectId) {
-            foreach($courseIds as $courseId) {
-                for($i = 0; $i < 3; $i++) {
+        foreach ($subjectIds as $subjectId) {
+            foreach ($courseIds as $courseId) {
+                for ($i = 0; $i < 3; $i++) {
                     Topic::factory(['course_id' => $courseId, 'subject_id' => $subjectId])->create();
                 }
             }
         }
-
-
-
-
     }
 }
