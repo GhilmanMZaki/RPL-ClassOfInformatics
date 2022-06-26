@@ -21,29 +21,6 @@
         <div class="navbar-right d-sm-flex d-block">
             <div id="menu-nav">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="icon-bell" style="color: white"></i>
-
-                        </a>
-                        <ul class="dropdown-menu feeds_widget vivify fadeIn notif">
-                            <li class="header blue">Notifications</li>
-                            @foreach (DB::table('notif')->where('student_id', Auth::id())->get()
-    as $item)
-                                <li>
-                                    <a href="javascript:void(0);">
-                                        <div class="feeds-left bg-info"><i class="fa fa-user"></i></div>
-                                        <div class="feeds-body">
-                                            <h4 class="title text-info">{{ $item->title }}<small
-                                                    class="float-right text-muted"></small></h4>
-                                            <small>{{ $item->message }}</small>
-                                        </div>
-                                    </a>
-                                </li>
-                            @endforeach
-
-                        </ul>
-                    </li>
                     <li><a href="#" class="icon-menu js-sweetalert" data-type="confirm-logout"
                             data-toggle="tooltip" data-placement="bottom" title="Keluar"><i class="icon-power"
                                 style="color:white"></i></a>

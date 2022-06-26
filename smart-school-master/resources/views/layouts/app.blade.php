@@ -42,26 +42,13 @@
             @if (Auth::user()->role === 'STUDENT' && Request::is('student/subject/*/course/*/topic/*/*'))
                 <div id="main-content" class="main-student w-100">
                     <div class="container-fluid position-relative container-student">
-                        <div class="position-absolute top-img">
-                            <img src="{{ asset('assets/images/top.svg') }}" width="120">
-                        </div>
                         @yield('content')
-                        <div class="position-absolute bottom-img-activity">
-                            <img src="{{ asset('assets/images/bottom.svg') }}" id="img-bg-bottom-activity">
-                        </div>
                     </div>
                 </div>
             @else
                 <div id="main-content" class="main-student">
                     <div class="container-fluid position-relative container-student">
-                        <div class="position-absolute top-img">
-                            <img src="{{ asset('assets/images/top.svg') }}" width="120">
-                        </div>
                         @yield('content')
-
-                    </div>
-                    <div class="position-absolute bottom-img">
-                        <img src="{{ asset('assets/images/bottom.svg') }}" id="img-bg-bottom">
                     </div>
                 </div>
             @endif

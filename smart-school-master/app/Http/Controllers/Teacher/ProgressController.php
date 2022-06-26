@@ -55,11 +55,11 @@ class ProgressController extends Controller
             ['type', '=', 'EXERCISE']
         ])->orderBy('created_at', 'desc')->get();
         $activities = [];
-        if(count($activitiesDB)){
+        if (count($activitiesDB)) {
             $totalActivity = count($activitiesDB);
-            for ($i=0; $i < $totalActivity; $i++) {
+            for ($i = 0; $i < $totalActivity; $i++) {
                 $activityResults = ActivityResult::where('activity_id', '=', $activitiesDB[$i]['id'])->get();
-                for ($a=0; $a < count($activityResults); $a++) {
+                for ($a = 0; $a < count($activityResults); $a++) {
                     $student = $studentDB->detail($schoolId, $activityResults[$a]['student_id']);
                     $activityName = Activity::where('id', '=', $activityResults[$a]['activity_id'])->value('name');
                     $activityResults[$a]['student_name'] = $student['name'];
@@ -69,14 +69,14 @@ class ProgressController extends Controller
                     array_push($activities, $push[0]);
                 }
             }
-        }else{
+        } else {
             $activities = null;
         }
 
         // content result
         $contentsDB = Content::where('topic_id', '=', $request->topic_id)->orderBy('created_at', 'desc')->get();
         $contents = [];
-        if(count($contentsDB)){
+        if (count($contentsDB)) {
             $totalContent = count($contentsDB);
             for ($i = 0; $i < $totalContent; $i++) {
                 $contentResults = ContentResult::where('content_id', '=', $contentsDB[$i]['id'])->get();
@@ -90,7 +90,7 @@ class ProgressController extends Controller
                     array_push($contents, $push[0]);
                 }
             }
-        }else{
+        } else {
             $contents = null;
         }
 
@@ -100,7 +100,7 @@ class ProgressController extends Controller
             ['type', '=', 'EXAM']
         ])->get();
         $exams = [];
-        if(count($examsDB)){
+        if (count($examsDB)) {
             $totalExam = count($examsDB);
             for ($i = 0; $i < $totalExam; $i++) {
                 $examResults = ActivityResult::where('activity_id', '=', $examsDB[$i]['id'])->get();
@@ -114,7 +114,7 @@ class ProgressController extends Controller
                     array_push($exams, $push[0]);
                 }
             }
-        }else{
+        } else {
             $exams = null;
         }
         $no = 1;
@@ -229,20 +229,20 @@ class ProgressController extends Controller
         return response()->json($topics);
     }
 
-    public function sendNotif($activity_id){
+    public function sendNotif($activity_id)
+    {
 
-        $examsDB = ActivityResult::where(['activity_id'=>$activity_id])->get();
+        $examsDB = ActivityResult::where(['activity_id' => $activity_id])->get();
 
         foreach ($examsDB as $key => $value) {
             $notif = new Notif;
-            $notif->student_id= $value->student_id;
-            $notif->teacher_id= Auth::id();
-            $notif->title= "Nilai Ulangan";
-            $notif->message= "Kamu mendapatkan nilai ".$value->score;
-            $notif->is_send= 1;
+            $notif->student_id = $value->student_id;
+            $notif->teacher_id = Auth::id();
+            $notif->title = "Nilai Ujian";
+            $notif->message = "Kamu mendapatkan nilai " . $value->score;
+            $notif->is_send = 1;
             $notif->save();
         }
         return redirect()->back();
-
     }
 }
