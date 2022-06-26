@@ -33,7 +33,7 @@
                         @include('shared.svg.pw')
                     </div>
                     <form class="form-auth-small my-auto" action="{{ route('update-password') }}" method="post">
-                        <img src="{{ asset('assets/images/logo-with-name-learnifyid.svg') }}" alt="Smart School Logo"
+                        <img src="{{ asset('assets/images/logocoi-removebg-preview.png') }}" alt="Smart School Logo"
                             class="img-fluid">
                         @csrf
                         @method('PATCH')

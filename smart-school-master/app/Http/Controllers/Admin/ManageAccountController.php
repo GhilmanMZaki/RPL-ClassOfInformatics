@@ -93,14 +93,15 @@ class ManageAccountController extends Controller
         return response()->json($update);
     }
 
-    public function updatePassword(){
+    public function updatePassword()
+    {
         $schoolId = Auth::user()->school_id;
         $userDB = new UserService;
 
         $currentPassword = Auth::user()->password;
         $oldPassword = request('old_password');
 
-        if(HASH::check($oldPassword, $currentPassword)){
+        if (HASH::check($oldPassword, $currentPassword)) {
             $userDB->update(
                 $schoolId,
                 Auth::user()->id,
@@ -111,39 +112,5 @@ class ManageAccountController extends Controller
         } else {
             return redirect()->back()->with('warning', 'Gagal memperbarui password');
         }
-    }
-
-    public function downloadExcelStudent() {
-        $file = public_path()."\assets\\excel\learnify_id_user_import_format_student.xlsx";
-        $headers = array('Content-Type: application/xlsx',);
-        return response()->download($file, 'learnify_id_user_import_format_student.xlsx', $headers);
-    }
-
-    public function downloadExcelTeacher() {
-        $file = public_path()."\assets\\excel\learnify_id_user_import_format_teacher.xlsx";
-        $headers = array('Content-Type: application/xlsx',);
-        return response()->download($file, 'learnify_id_user_import_format_teacher.xlsx', $headers);
-    }
-
-    public function importStudent(Request $request) {
-
-        Excel::import(new StudentImport, $request->file('excel-file'));
-
-        return redirect()->back();
-    }
-
-    public function importTeacher(Request $request) {
-
-        Excel::import(new TeacherImport, $request->file('excel-file'));
-
-        return redirect()->back();
-    }
-
-    public function exportStudent() {
-        return Excel::download(new StudentExport, "student_account.xlsx");
-    }
-
-    public function exportTeacher() {
-        return Excel::download(new TeacherExport, "teacher_account.xlsx");
     }
 }
