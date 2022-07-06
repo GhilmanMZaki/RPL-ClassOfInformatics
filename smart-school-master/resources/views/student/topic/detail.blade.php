@@ -73,7 +73,7 @@
             <div id="loading-exam" style="display: none;">
                 <div class="row-clearfix mt-5">
                     <h5 class="color-blue-2 font-weight-bold text-capitalize">.........</h5>
-                    <a class="color-black font-weight-bold">Terdapat <span class="color-blue-2">...</span> Ulangan!</a>
+                    <a class="color-black font-weight-bold">Terdapat <span class="color-blue-2">...</span> Ujian!</a>
                     <div class="mt-3">
                         <a href="javascript::void(0)"
                             class="d-flex align-items-center p-2 w-100 bg-white shadow-sm rounded border-hover">
